@@ -9,10 +9,11 @@ from PySide6 import QtCore, QtWidgets
 from PySide6.QtSql import QSqlRelation, QSqlRelationalTableModel, QSqlTableModel, QSqlRelationalDelegate, QSqlQuery
 import createddb
 
-from ui_main_wisget import Ui_Form
-from ui_CategoryForm import Ui_CategoryForm
-from ui_SubCategoryForm import Ui_SubCategoryForm
-from ui_EquipmentForm import Ui_EquipmentForm
+from smart.design.ui_main_wisget import Ui_Form
+from smart.design.ui_CategoryForm import Ui_CategoryForm
+from smart.design.ui_SubCategoryForm import Ui_SubCategoryForm
+from smart.design.ui_EquipmentForm import Ui_EquipmentForm
+import config
 
 
 class CategoryWidget(QtWidgets.QWidget):
@@ -93,6 +94,7 @@ class MainQwidget(QtWidgets.QWidget):
 class MainWindow(QMainWindow):
     def __init__(self):
         super(MainWindow, self).__init__()
+        self.config = config.Config()
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         # Иницилизация базы данных
@@ -159,12 +161,20 @@ class MainWindow(QMainWindow):
                           self.tr("<p>The <b>Books</b> example shows how to use Qt SQL classes "
                                   "with a model/view framework."))
 
+    def closeEvent(self, event):
+        if not self.isMaximized():
+            self.config.set_windowsize(self.width(), self.height())
+        self.config.set_Maximized(self.isMaximized())
+
 
 def application():
     app = QApplication(sys.argv)
 
     window = MainWindow()
-    window.resize(window.sizeHint())
+    a, b = window.config.get_windowsize()
+    window.resize(a, b)
+    if window.config.get_Maximized():
+        window.showMaximized()
     window.show()
 
     sys.exit(app.exec())

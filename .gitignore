@@ -1,4 +1,5 @@
 .idea/
-__pycashe__/
+__pycache__/
 venv/
-
+smart/__pycache__/
+smart/design/__pycache__/
