@@ -70,7 +70,7 @@ class BookWindow(QMainWindow, Ui_BookWindow):
         mapper.addMapping(self.ratingEdit, model.fieldIndex("rating"))
 
         selection_model = self.bookTable.selectionModel()
-        selection_model.currentRowChanged.connect(mapper.setCurrentModelIndex)
+        selection_model.currentRowChanged.connect(mapper.set)
 
         self.bookTable.setCurrentIndex(model.index(0, 0))
         self.create_menubar()

@@ -2,6 +2,9 @@
 <ui version="4.0">
  <class>SubCategoryForm</class>
  <widget class="QWidget" name="SubCategoryForm">
+  <property name="windowModality">
+   <enum>Qt::ApplicationModal</enum>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -55,15 +58,15 @@
      <item row="1" column="1">
       <widget class="QLineEdit" name="lineEdit_desc_sub_category"/>
      </item>
-     <item row="2" column="0">
+     <item row="3" column="0">
       <widget class="QLabel" name="label_3">
        <property name="text">
-        <string>TextLabel</string>
+        <string>Категория</string>
        </property>
       </widget>
      </item>
-     <item row="2" column="1">
-      <widget class="QLineEdit" name="lineEdit_categoryid_sub_category"/>
+     <item row="3" column="1">
+      <widget class="QComboBox" name="lineEdit_categoryid_sub_category"/>
      </item>
     </layout>
    </item>

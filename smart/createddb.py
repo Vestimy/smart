@@ -1,5 +1,7 @@
-from PySide6.QtSql import QSqlDatabase
+from PySide6.QtSql import QSqlDatabase, QSqlQuery
 from config import Config
+
+Q = QSqlQuery()
 
 
 def init_db():
@@ -22,6 +24,6 @@ def init_db():
     db.setHostName(hostname)
     db.setDatabaseName(databasename)
     db.setUserName(username)
+    return db
 
 
-init_db()
