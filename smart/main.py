@@ -235,13 +235,6 @@ class EquipmentWidget(QtWidgets.QWidget):
             self.model.select()
 
 
-class MainQwidget(QtWidgets.QWidget):
-    def __init__(self, parent=None):
-        super(MainQwidget, self).__init__(parent)
-        self.qqq = Ui_Form()
-        self.qqq.setupUi(self)
-
-
 class MainWindow(QMainWindow):
     def __init__(self):
         super(MainWindow, self).__init__()
@@ -280,9 +273,10 @@ class MainWindow(QMainWindow):
         self.category.show()
 
     def create_menubar(self):
-        self.ui.category = self.ui.menuFile.addAction(self.tr("&Категория"))
+        self.ui.categorys = self.ui.menuFile.addAction(self.tr("&Категория"))
         self.ui.category = self.ui.menubar.addAction(self.tr("&Категория"))
         self.ui.category.triggered.connect(self.show_category)
+        self.ui.categorys.triggered.connect(self.show_category)
 
         self.ui.subcategory = self.ui.menuFile.addAction(self.tr("Sub Категория"))
         self.ui.subcategory = self.ui.menubar.addAction(self.tr("Sub Категория"))
