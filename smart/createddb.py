@@ -1,6 +1,7 @@
 from PySide6.QtSql import QSqlDatabase
 from config import Config
 
+
 def init_db():
     """
     init_db()
@@ -15,7 +16,12 @@ def init_db():
     #     if not func(*args):
     #         raise ValueError(func.__self__.lastError())
 
-    db = QSqlDatabase.addDatabase('QMYSQL')
-    db.setHostName('localhost')
-    db.setDatabaseName('new_test')
-    db.setUserName('root')
+    qsqldatabase, hostname, databasename, username, password = db_conf.get_db()
+
+    db = QSqlDatabase.addDatabase(qsqldatabase)
+    db.setHostName(hostname)
+    db.setDatabaseName(databasename)
+    db.setUserName(username)
+
+
+init_db()

@@ -37,3 +37,11 @@ class Config(configparser.ConfigParser):
     def setUrl(self, url):
         self['DBCONF']['host'] = url
         self.setparams()
+
+    def get_db(self):
+        qsqldatabase = self['DBCONF']['qsqldatabase']
+        hostname = self['DBCONF']['hostname']
+        databasename = self['DBCONF']['databasename']
+        username = self['DBCONF']['username']
+        password = self['DBCONF']['password']
+        return qsqldatabase, hostname, databasename, username, password
