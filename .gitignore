@@ -3,3 +3,5 @@ __pycache__/
 venv/
 smart/__pycache__/
 smart/design/__pycache__/
+alembic/
+tabsmart/__pycache__/
