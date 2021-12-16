@@ -5,3 +5,12 @@ smart/__pycache__/
 smart/design/__pycache__/
 alembic/
 tabsmart/__pycache__/
+alembic.ini
+contacts.sqlite
+demo.db
+form.ui
+main_widget.ui
+main_wigetn.ui
+mainwindow.ui
+test2.py
+test3.py
